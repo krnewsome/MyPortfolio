@@ -33,6 +33,14 @@ const About = () =>(
 
 
     <style jsx>{`
+    
+      #aboutSection{
+        padding-top: 90px;
+
+      }
+
+      .aboutHeader{
+      }
 
       .mainWrapperDiv{
         border: solid green 2px;

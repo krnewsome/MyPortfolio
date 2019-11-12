@@ -3,9 +3,9 @@ import Link from 'next/link'
 import Head from 'next/head'
 
 const links = [
-  { href: '#aboutSection', label: 'About Me' },
-  { href: '#portfolioSection', label: 'Portfolio' },
-  { href: '#contactMeSection', label: 'Contact' }
+  { href: '#aboutSection', label: 'About Me', navType:'mainNav' },
+  { href: '#portfolioSection', label: 'Portfolio', navType:'mainNav'},
+  { href: '#contactMeSection', label: 'Contact', navType:'mainNav'}
 
 ].map(link => {
   link.key = `nav-link-${link.href}-${link.label}`
@@ -27,12 +27,12 @@ const Nav = () => (
       <ul>
         <li>
           <Link href='/'>
-            <a>Home</a>
+            <a navType="mainNav">Home</a>
           </Link>
         </li>
-        {links.map(({ key, href, label }) => (
+        {links.map(({ key, href, label, navType}) => (
           <li key={key}>
-            <a href={href}>{label}</a>
+            <a href={href} navType={navType}>{label}</a>
           </li>
         ))}
        
@@ -77,7 +77,7 @@ const Nav = () => (
           transition: all 500ms ease-in-out;
         }
 
-        a:hover{
+        a[navType="mainNav"]:hover{
           color: #0082B4;
           font-size: 36px;
         }

@@ -4,6 +4,7 @@ import Nav from '../components/nav.js'
 import About from '../components/about.js'
 import { Link, animateScroll as scroll } from "react-scroll";
 
+
 /* ---------- HTML ------------*/ 
 class Home extends React.Component {
   constructor(props){
@@ -12,19 +13,25 @@ class Home extends React.Component {
       test: 0
     };
   }
-  
-  changeSection =(e)=>{
-    e.preventDefault();
-    console.log($('.navBarWrapper')[0]);
-    let navBar = $('.navBarWrapper')[0];
-    while(navBar.style.opacity !== 1){
-      console.log(navBar.style.opacity)
-      navBar.style.opacity = navBar.style.opacity + 1;
-    }
-    
-  }
 
   componentDidMount(){
+    window.onscroll = function() {stickyBarScroll()};
+    // Get the navbar
+    let navbar = $('.navBarWrapper')[0];
+    let pageWrapper = $('.homeSectionWrapper')[0];
+
+    // Get the offset position of the navbar
+    let sticky = navbar.offsetTop;
+    // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+    function stickyBarScroll() {
+      if (window.pageYOffset >= sticky) {
+        navbar.classList.add("sticky")
+      } else {
+        navbar.classList.remove("sticky");
+
+      }
+    }
+    
     console.log(1)
   }
 
@@ -41,13 +48,12 @@ class Home extends React.Component {
         <section className='homeSectionWrapper'>
           <div className='homeFlex'>
             <div className='title'>LET'S BUILD SOMETHING GREAT TOGETHER!</div>
-            <div onClick={this.changeSection} id='circleForEnterBtn'>       
+            <div id='circleForEnterBtn'>       
               <Link
                 activeClass="active"
-                to="about"
+                to="aboutSection"
                 spy={true}
                 smooth={true}
-                offset={-70}
                 duration= {500}
                 >
                   <span className="tSpan"></span>
@@ -67,27 +73,33 @@ class Home extends React.Component {
             </div>
 
           </div>
-          <div className='navBarWrapper'>
-            <Nav />
-          </div>
         </section>
-          <About />
+        <div className='navBarWrapper'>
+            <Nav />
+        </div>
+        <About />
         <section className='portfolioSectionWrapper'>
         </section>
     
     
         <style jsx>{`
             .navBarWrapper{
-            opacity: 0;
-            width: 90%;
+            overflow: hidden;
+            width: 100%;
             background-color: #000D12;
             bottom: 0px;
-            position: absolute;
             border-bottom: solid #0082B4 2px;
             border-top: solid #0082B4 2px;
-            tansition: opacity 5s ease-in-out;
+            max-height: 10%;
           }
           
+          .navBarWrapper.sticky {
+            position:sticky;
+            top: 0;
+            width: 100%;
+            max-height: 10%;
+          }
+
           .homeSectionWrapper{
             height: 100vh;
             position: relative;
@@ -99,6 +111,7 @@ class Home extends React.Component {
             text-align: center;
             min-height: 80vh;
           }
+
           .homeFlex{
             display: flex;
             flex-direction: column;
@@ -218,7 +231,7 @@ class Home extends React.Component {
             bottom: 0px;
             top:80%;
             color: white;
-            transition: all 3000ms;
+            transition: all 4000ms;
             text-shadow: 0px 0px 0px;
     
           }
@@ -273,7 +286,7 @@ class Home extends React.Component {
               text-align: center;
             }
           `}</style>
-    </div>
+      </div>
     )
   }
 }
