@@ -127,7 +127,7 @@ class Home extends React.Component {
     
           #circleForEnterBtn{
             margin-top: 5%;
-            text-align: center
+            text-align: center;
             padding:0;
             height: 100px;
             width: 100px;
