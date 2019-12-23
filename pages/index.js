@@ -1,7 +1,9 @@
 import React from 'react'
 import Head from 'next/head'
+import Animation from '../components/animations/animations.js'
 import Nav from '../components/nav.js'
 import About from '../components/about.js'
+import Portfolio from '../components/portfolio.js'
 import { Link, animateScroll as scroll } from "react-scroll";
 
 
@@ -75,26 +77,40 @@ class Home extends React.Component {
           </div>
         </section>
         <div className='navBarWrapper'>
-            <Nav />
+           <Nav />
         </div>
         <About />
-        <section className='portfolioSectionWrapper'>
-        </section>
-    
-    
+        <Portfolio />
+        <div className='containers'>
+          <Animation />
+
+        </div>
         <style jsx>{`
-            .navBarWrapper{
-            overflow: hidden;
-            width: 100%;
-            background-color: #000D12;
-            bottom: 0px;
-            border-bottom: solid #0082B4 2px;
-            border-top: solid #0082B4 2px;
-            max-height: 10%;
+
+          .container{
+            
+            display: grid;
+            height: 100%;
+            grid-template-columns: 1fr 5fr 1fr;
+            grid-templarete-rows: 1fr 5fr 1fr;
+            grid-template-areas: 'header header header'
+                                 'left-sidar main right-sidebar'
+                                 'footer footer footer';
           }
+
+          .navBarWrapper{
+          overflow: hidden;
+          width: 100%;
+          background-color: #000D12;
+          bottom: 0px;
+          border-bottom: solid #0082B4 2px;
+          border-top: solid #0082B4 2px;
+          max-height: 10%;
+        }
           
           .navBarWrapper.sticky {
             position:sticky;
+            z-index: 1;
             top: 0;
             width: 100%;
             max-height: 10%;

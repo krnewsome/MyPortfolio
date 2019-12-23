@@ -52,17 +52,11 @@ const About = () =>(
       </div>
     </div>
 
-    
-
-
-
-
-
 
     <style jsx>{`
     
       #aboutSection{
-        padding-top: 90px;
+        padding-top: 60px;
 
       }
 
@@ -83,23 +77,36 @@ const About = () =>(
       }
 
       .profilePhotoDiv{
+        display: block;
         border: solid #FC8421 2px;
         border-radius: 50%;
         height: 300px;
         width: 300px;
-        position: absolute;
-        background-image: url(no.png);
+        background-image: url("images/me.jpeg");
         background-position:50% 50%;
         background-repeat:no-repeat;  
-        margin-top: 10%;
         background-color: grey;
+        position: absolute; 
+        margin-left: -.5%;
       }
-      
+
+      @media only screen and (max-width: 1100px) {
+        .profilePhotoDiv{
+          display: none;
+        }
+      }
       .aboutMeBoxDiv{
+        max-width: 650px;
+        margin-top: 200px;
         height: 300px;
-        margin-top: 50%;
         border: solid #0082B4 2px;
         background-color: #FC8421;
+      }
+
+      @media only screen and (max-width: 1100px) {
+        .aboutMeBoxDiv{
+          overflow: scroll;
+        }
       }
 
       .aboutMeBoxContent{
@@ -119,11 +126,11 @@ const About = () =>(
       .rightFlexBox{
         display: flex;
         flex-direction: column;
-        padding: 5% 0;
+        padding: 0% 0%;
       }
       
       .rightFlexBox div{
-        height: 20%;
+        margin: 2% auto;
       }
 
     `}</style>

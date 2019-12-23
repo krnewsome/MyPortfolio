@@ -1,16 +1,24 @@
 import React from 'react'
-import Link from 'next/link'
 import Head from 'next/head'
+import { Link, animateScroll as scroll } from "react-scroll";
 
+
+//create main nav menu links
 const links = [
-  { href: '#aboutSection', label: 'About Me', navType:'mainNav' },
-  { href: '#portfolioSection', label: 'Portfolio', navType:'mainNav'},
-  { href: '#contactMeSection', label: 'Contact', navType:'mainNav'}
+  { to: 'aboutSection', label: 'About Me', navtype:'mainNav' },
+  { to: 'portfolioSection', label: 'Portfolio', navtype:'mainNav'},
+  { to: 'contactMeSection', label: 'Contact', navtype:'mainNav'}
 
 ].map(link => {
   link.key = `nav-link-${link.href}-${link.label}`
   return link
 });
+// END OF MAN NAV LINKS
+
+//create dropdown menu function
+let dropDownFunc=()=>{
+  console.log('works');
+}
 
 const Nav = () => (
   <div>
@@ -24,62 +32,100 @@ const Nav = () => (
     </Head>
 
     <nav>
-      <ul>
-        <li>
-          <Link href='/'>
-            <a navType="mainNav">Home</a>
+      <ul className='mainMenu'>
+        <li className='menuDropDown'> 
+          <p onClick={dropDownFunc} className="border-menu">
+           Menu
+          </p>
+        </li>
+        <li navtype="mainNav">
+          <Link
+                activeClass="active"
+                to="homeSectionWrapper"
+                spy={true}
+                smooth={true}
+                duration= {500}
+                >Home
           </Link>
         </li>
-        {links.map(({ key, href, label, navType}) => (
-          <li key={key}>
-            <a href={href} navType={navType}>{label}</a>
+        {links.map(({ key, to, label, navtype}) => (
+          <li key={key} navtype={navtype}>
+            <Link
+                activeClass="active"
+                to= {to}
+                spy={true}
+                smooth={true}
+                duration= {500}
+                >{label}
+          </Link>
           </li>
         ))}
        
         </ul>
-        <ul tag='social'>
+        <ul>
           <li tag='social'> <a href="#" className="fa fa-facebook"></a></li>
           <li tag='social'> <a href="#" className="fa fa-twitter"></a></li>
           <li tag='social'> <a href="#" className="fa fa-linkedin"></a></li>
           <li tag='social'> <a href="#" className="fa fa-youtube"></a></li>
+          <li className='menuDropDown2'>
+            <p className="border-menu">
+              Social
+            </p>
+          </li>
         </ul>
+      
       <style jsx>{`
         :global(body) {
           margin: 0;
           font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,
             Helvetica, sans-serif;
         }
+
         nav {
           display: flex;
           flex-flow: row;
-          justify-content: flex-start;
+          justify-content: space-between;
 
-        }
-        ul {
-
-        }
-
-        ul[tag="social"]{
-          margin-left: 40%;
         }
         
-        nav > ul {
-          padding: 4px 16px;
-        }
+
         li {
           display: inline-block;
           padding: 6px 8px;
-        }
-        a {
           color: #FFF;
-          text-decoration: none;
           font-size: 24px;
           transition: all 500ms ease-in-out;
         }
+        
 
-        a[navType="mainNav"]:hover{
+        li[navtype="mainNav"]:hover{
           color: #0082B4;
           font-size: 36px;
+        }        
+
+        .menuDropDown, .menuDropDown2{
+          display: none;
+        }
+
+
+        @media only screen and (max-width: 1100px) {
+          
+          li[tag="social"]{
+            display: none;
+          }
+          
+          li[navtype="mainNav"]{
+            display: none;
+          }
+
+          .menuDropDown{
+            display: block;
+          }
+
+          .menuDropDown2{
+            display: block;
+          }
+
         }
 
         .fa {
@@ -88,7 +134,6 @@ const Nav = () => (
           width: 20px;
           text-align: center;
           text-decoration: none;
-          margin-left: px;
           border-radius: 50%;
           align-self: flex-end;
 
@@ -118,6 +163,25 @@ const Nav = () => (
           color: white;
         }
 
+        p{
+          margin: 0px;
+        }
+
+        .border-menu {
+          position: relative;
+          padding-left: 1.25em;
+        }
+        .border-menu:before {
+          content: "";
+          position: absolute;
+          top: 0.25em;
+          left: 0;
+          width: 1em;
+          height: 0.125em;
+          border-top: 0.375em double #fff;
+          border-bottom: 0.125em solid #fff;
+        }
+        
       `}</style>
     </nav>
   </div>
