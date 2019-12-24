@@ -6,10 +6,12 @@ import { mdiIframe } from '@mdi/js';
 
 
 const ProjectList =(props)=>{
-  console.log(props)
+  console.log(props.pCount)
   return(
-    <div className='flexBox p1'>
-      <a className='projectList' href={props.projectLinks[props.p1Count[0]]} >Student Search Form</a>
+    /* use a template literal and brackets to dynamically change the count of the class for the background and animations
+    of each project while the next buttton is clicked.  */
+    <div className={`flexBox p${props.pCount}`}>
+<a className='projectList' href={props.projectLinks[props.pCount]} >{props.projectNames[props.pCount]}</a>
 
       <style jsx>{`
 
@@ -29,11 +31,20 @@ const ProjectList =(props)=>{
               color: #0082B4;
               font-size: 40px;
             }  
-            .p1{
+            .p0{
               opacity: .8;
               background-image: url("images/studentList.png");
             }
-            
+
+            .p1{
+              opacity: .8;
+              background-image: url("images/registrationForm.png");
+            }
+
+            .p2{
+              opacity: .8;
+              background-image: url("images/tickTacToe.png");
+            }
 
       `}
       </style>
@@ -45,22 +56,28 @@ class Portfolio extends React.Component{
   constructor(props){
     super(props)
     this.state = {
-      projectLinks: ["https://krnewsome.github.io/Project_2/",
-      'a'],
-      p1Count: 0,
+      projectNames: ['Student Search From', 'Registration Form', 'Tick Tac Toe'],
+      projectLinks: ["https://krnewsome.github.io/Project_2/", 
+      'https://krnewsome.github.io/Project_3/', 'https://krnewsome.github.io/Project-4/'],
+      pCount: 0,
 
     }
   }
 
   
-  
+  /* Function used to cycle through each project. Once the function is executed add 1 to the project count (pCount). Before setting the state 
+  of the projectlist, check to see is the count is over the length of the projectlist. If it is not change the state by increasing 1. If it is 
+  cycle back to the first project in the list. Remeber the pCount will be passed to the project list array to tell the program which project
+  link to use.   */
   nextProject(){
-    console.log(this.state.p1Count)
-    if(this.state.p1Count < this.state.projectLinks.length){
-      this.state.p1Count++
+    this.state.pCount++;
+    if(this.state.pCount < this.state.projectLinks.length){
+      this.setState({
+        pCount: this.state.pCount
+      })
     } else {
       this.setState({
-        p1Count: 0
+        pCount: 0
       })
     }
   }
@@ -72,8 +89,8 @@ class Portfolio extends React.Component{
       <section id ="portfolioSection">
           <h1 className='portfolioHeader' id='about'> My Projects </h1>
           <div className='mainWrapperDiv'>
-            <div className='flexBox p1'>
-              <ProjectList p1Count = {this.state.p1Count} projectLinks = {this.state.projectLinks}/>
+            <div className='flexBox'>
+              <ProjectList pCount = {this.state.pCount} projectNames = {this.state.projectNames} projectLinks = {this.state.projectLinks}/>
               <button onClick={this.boundNextProject}> Next </button>
 
             </div>
