@@ -1,9 +1,9 @@
 import React from 'react'
 import Head from 'next/head'
-import Animation from '../components/animations/animations.js'
-import Nav from '../components/nav.js'
-import About from '../components/about.js'
-import Portfolio from '../components/portfolio.js'
+import Animation from './components/animations/animations.js'
+import Nav from './components/nav.js'
+import About from './components/about.js'
+import Portfolio from './components/portfolio.js'
 import { Link, animateScroll as scroll } from "react-scroll";
 
 
@@ -34,7 +34,6 @@ class Home extends React.Component {
       }
     }
     
-    console.log(1)
   }
 
 
@@ -150,6 +149,7 @@ class Home extends React.Component {
             border: solid #ffffff 2px;
             border-radius: 50%;
             transition: all 200ms ease-in-out;
+            display: block;
           }
         
           #circleForEnterBtn:hover{

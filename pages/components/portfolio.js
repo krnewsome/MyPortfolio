@@ -1,18 +1,17 @@
-import React from 'react'
-import Icon from '@mdi/react'
-import { mdiConsolidate } from '@mdi/js'
-import { mdiCursorDefaultClick } from '@mdi/js';
-import { mdiIframe } from '@mdi/js';
-
+import React from 'react';
+import projectList  from  './projects/projectList.json';
 
 const ProjectList =(props)=>{
-  console.log(props.pCount)
+  let count = props.pCount;
+  let selectedProject = props.pList[count];
+  let styles = {
+    backgroundImage: `url(${selectedProject.project_screen_Shot})`
+  }
   return(
     /* use a template literal and brackets to dynamically change the count of the class for the background and animations
     of each project while the next buttton is clicked.  */
-    <div className={`flexBox p${props.pCount}`}>
-<a className='projectList' href={props.projectLinks[props.pCount]} >{props.projectNames[props.pCount]}</a>
-
+    <div style={styles} className={`flexBox pDefault`}>
+        <a className='projectList' href={selectedProject.project_link} >{selectedProject.project_name}</a>
       <style jsx>{`
 
             .projectList{
@@ -30,21 +29,12 @@ const ProjectList =(props)=>{
             .projectList:hover{
               color: #0082B4;
               font-size: 40px;
-            }  
-            .p0{
-              opacity: .8;
-              background-image: url("images/studentList.png");
-            }
+            } 
 
-            .p1{
+            .pDefault{
+              height: 100%;
               opacity: .8;
-              background-image: url("images/registrationForm.png");
-            }
-
-            .p2{
-              opacity: .8;
-              background-image: url("images/tickTacToe.png");
-            }
+            } 
 
       `}
       </style>
@@ -56,22 +46,18 @@ class Portfolio extends React.Component{
   constructor(props){
     super(props)
     this.state = {
-      projectNames: ['Student Search From', 'Registration Form', 'Tick Tac Toe'],
-      projectLinks: ["https://krnewsome.github.io/Project_2/", 
-      'https://krnewsome.github.io/Project_3/', 'https://krnewsome.github.io/Project-4/'],
       pCount: 0,
-
     }
   }
-
   
-  /* Function used to cycle through each project. Once the function is executed add 1 to the project count (pCount). Before setting the state 
+  /* Function used to cycle through each project. Once the function is executed add 1 to the project count (pCount1). Before setting the state 
   of the projectlist, check to see is the count is over the length of the projectlist. If it is not change the state by increasing 1. If it is 
-  cycle back to the first project in the list. Remeber the pCount will be passed to the project list array to tell the program which project
+  cycle back to the first project in the list. Remeber the pCount1 will be passed to the project list array to tell the program which project
   link to use.   */
   nextProject(){
+
     this.state.pCount++;
-    if(this.state.pCount < this.state.projectLinks.length){
+    if(this.state.pCount < projectList.length){
       this.setState({
         pCount: this.state.pCount
       })
@@ -90,13 +76,8 @@ class Portfolio extends React.Component{
           <h1 className='portfolioHeader' id='about'> My Projects </h1>
           <div className='mainWrapperDiv'>
             <div className='flexBox'>
-              <ProjectList pCount = {this.state.pCount} projectNames = {this.state.projectNames} projectLinks = {this.state.projectLinks}/>
+              <ProjectList pList= {projectList} pCount = {this.state.pCount}/>
               <button onClick={this.boundNextProject}> Next </button>
-
-            </div>
-            <div className='flexBox'>
-            </div>
-            <div className='flexBox'>
             </div>
           </div>
 
@@ -135,6 +116,5 @@ class Portfolio extends React.Component{
   }
 
 }
-
 
 export default Portfolio
