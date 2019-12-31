@@ -141,6 +141,7 @@ class Home extends React.Component {
           }
     
           #circleForEnterBtn{
+            cursor: pointer;
             margin-top: 5%;
             text-align: center;
             padding:0;
@@ -228,6 +229,7 @@ class Home extends React.Component {
           }
       
           .startBtn{
+            cursor: pointer;
             font-size: 24px;
             margin-top: 34%;
           }

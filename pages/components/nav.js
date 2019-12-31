@@ -90,6 +90,7 @@ const Nav = () => (
         
 
         li {
+          cursor: pointer;
           display: inline-block;
           padding: 6px 8px;
           color: #FFF;
