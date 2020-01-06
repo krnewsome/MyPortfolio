@@ -4,6 +4,9 @@ import Animation from './components/animations/animations.js'
 import Nav from './components/nav.js'
 import About from './components/about.js'
 import Portfolio from './components/portfolio.js'
+import ContactMe from './components/contactMe.js'
+import Footer from './components/footer.js'
+
 import { Link, animateScroll as scroll } from "react-scroll";
 
 
@@ -78,16 +81,17 @@ class Home extends React.Component {
         <div className='navBarWrapper'>
            <Nav />
         </div>
-        <About />
-        <Portfolio />
-        <div className='containers'>
-          <Animation />
-
+        <div className="sectionWrapper">
+          <About />
         </div>
+        <div className="sectionWrapper">
+          <Portfolio />
+        </div>
+        <ContactMe />
+        <Footer />
         <style jsx>{`
 
           .container{
-            
             display: grid;
             height: 100%;
             grid-template-columns: 1fr 5fr 1fr;
@@ -295,8 +299,10 @@ class Home extends React.Component {
     
           }
     
-          /* ---------- LINKS ---------- */
-          
+          .sectionWrapper{
+            border-bottom: 1px solid #f1f1f1;
+          }
+
     
         `}</style>
           <style global jsx>{`

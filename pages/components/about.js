@@ -15,8 +15,9 @@ const About = () =>(
             <h2>HI I'M RYAN</h2>
             <span className='underlineTitle'></span>
             <p className='aboutMeDesciption'>
-              I am a Full Stack Javascript Developer that has a deep passion for bringing ideas to life! I want to help bring your throughts, ideals, and dreams to life 
-              through creative designs, fun interactivity, and new inovate creations. Explore my site for a broad example of how we can bring your dreams to life.  
+            I’m a freelance Full Stack JavaScript Developer that has a deep passion for bringing ideas to life, through creative designs, fun interactivity, and new innovate creations. 
+            Have an idea and need some help putting the pieces together, Contact me, so we can get started.<br/>
+            Let’s build something great together! 
             </p>
           </div>
         </div>

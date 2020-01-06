@@ -16,32 +16,15 @@ const ProjectList =(props)=>{
     /* use a template literal and brackets to dynamically change the count of the class for the background and animations
     of each project while the next buttton is clicked.  */
     <div className={`flexBox pDefault`}>
-        <a className='projectList' href={selectedProject.project_link} >{selectedProject.project_name}</a>
-        <img src= {selectedProject.project_screen_Shot} style={styles}/>
+        <a href={selectedProject.project_link} ><img src= {selectedProject.project_screen_Shot} style={styles}/></a>
+        
       <style jsx>{`
-
-            .projectList{
-              padding:1em;
-              display:inline-block;
-              text-decoration: none !important;
-              font-size: 36px;
-              font-weight: bold;
-              color: black;
-              text-shadow: 2px 2px 30px #0082B4;
-              opacity: 1;
-              transition: all 500ms ease-in-out;
-            }
-
-            .projectList:hover{
-              color: #0082B4;
-              font-size: 40px;
-            } 
-
             .pDefault{
-              min-width: 100%;
+              max-width: 50%;
               min-height: 100%;
               opacity: .8;
               position: relative;
+              display: inline-block;
              
             } 
 
@@ -117,7 +100,10 @@ class Portfolio extends React.Component{
 
             #portfolioSection{
               padding-top: 60px;
-
+            }
+            
+            #about{
+              margin-bottom: 0;
             }
 
             .portfolioHeader{
