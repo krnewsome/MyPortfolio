@@ -305,7 +305,7 @@ class Canvas extends React.Component{
                     
                     
                 } else if(bodyP[xy] > endingP){
-                    console.log('herre', bodyP[xy])
+                    console.log('here', bodyP[xy])
 
                         bodyP[xy] -= .1;
                     

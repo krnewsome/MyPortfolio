@@ -4,24 +4,31 @@ import Animation from './animations/animations.js'
 
 const ContactMe = () =>(
   <section id ="contactMeSection">
-    <h1 className='aboutHeader' id='about'> CONTACT </h1>
-    <p>Have questions or want to build something together? Feel free to send an email to XXXXXX@email.com and lets talk.</p>
-   
-    <h2>Connect with me on Social Media!</h2>
-    <p> Follow and connect with me on Facebook, Twitter, YouTube, and LinkedIn.</p>
-    <ul>
-      <li tag='social'> <a href="#" className="fa fa-facebook"></a></li>
-      <li tag='social'> <a href="#" className="fa fa-twitter"></a></li>
-      <li tag='social'> <a href="#" className="fa fa-linkedin"></a></li>
-      <li tag='social'> <a href="#" className="fa fa-youtube"></a></li>
-    </ul>
-    <div className="socailMeidaSection">
-
-
-    </div>
-    <Animation />
-  
+    <div className="container">
+      <h1 className='aboutHeader' id='about'> CONTACT </h1>
+      <p>Have questions or want to build something together? Feel free to send an email to XXXXXX@email.com and lets talk.</p>
+    
+      <h2>Connect with me on Social Media!</h2>
+      <p> Follow and connect with me on Facebook, Twitter, YouTube, and LinkedIn.</p>
+      <ul>
+        <li tag='social'> <a href="#" className="fa fa-facebook"></a></li>
+        <li tag='social'> <a href="#" className="fa fa-twitter"></a></li>
+        <li tag='social'> <a href="#" className="fa fa-linkedin"></a></li>
+        <li tag='social'> <a href="#" className="fa fa-youtube"></a></li>
+      </ul>
+      </div>
     <style jsx>{`
+
+          #contactMeSection{
+              text-align: center;
+              margin: 18em 0;
+            }
+      
+            .container{
+              border: solid;
+             
+            }
+
            li {
             cursor: pointer;
             display: inline-block;
