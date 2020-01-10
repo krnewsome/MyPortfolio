@@ -1,6 +1,5 @@
 import React from 'react'
 import Head from 'next/head'
-import Animation from './components/animations/animations.js'
 import Nav from './components/nav.js'
 import About from './components/about.js'
 import Portfolio from './components/portfolio.js'
@@ -20,21 +19,59 @@ class Home extends React.Component {
   }
 
   componentDidMount(){
-    window.onscroll = function() {stickyBarScroll()};
+    window.onscroll = function() {stickyBarScrollandBckGroundColor()};
     // Get the navbar
     let navbar = $('.navBarWrapper')[0];
-    let pageWrapper = $('.homeSectionWrapper')[0];
-
-    // Get the offset position of the navbar
+     // Get the offset position of the navbar
     let sticky = navbar.offsetTop;
-    // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
-    function stickyBarScroll() {
-      if (window.pageYOffset >= sticky) {
-        navbar.classList.add("sticky")
-      } else {
-        navbar.classList.remove("sticky");
+    let scrollStopAbout = aboutSection.offsetTop ;
+    let scrollStopPortfolio = portfolioSection.offsetTop - 100 ;
+    let scrollStopContactMe = contactMeSection.offsetTop;
+    let pages = [
+                          {
+                            pageSection: aboutSection,
+                            pageReferenceNum: 1,
+                            pageBreakPoint: navbar.offsetTop,
+                            pageBackgroundAnimation: "backgroundAnimationAbout"
+                          }, 
+                          {
+                            pageSection: portfolioSection, 
+                            pageReferenceNum: 2,
+                            pageBreakPoint: scrollStopPortfolio,
+                            pageBackgroundAnimation: "backgroundAnimationPortfolio"
+                          }, 
+                          {
+                            pageSection: contactMeSection,
+                            pageReferenceNum: 1,
+                            pageBreakPoint: scrollStopContactMe,
+                            pageBackgroundAnimation: "backgroundAnimationContactMe"
+                          }  
+                        ];
 
+
+    // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+    function stickyBarScrollandBckGroundColor() {
+      //set stick for nav bar
+      if (window.pageYOffset >= sticky) {
+        navbar.classList.add("sticky");
+      } else {
+        navbar.classList.remove("sticky");    
       }
+
+      pages.forEach((page) =>{
+
+        // pageNum is a reference to the previous page about. This is done to remove the animation class when scrolling up
+        if(window.pageYOffset >= page.pageBreakPoint ){
+          page.pageSection.classList.add(page.pageBackgroundAnimation)
+                    console.log('add')
+
+        } else {
+          console.log('remove')
+          page.pageSection.classList.remove(page.pageBackgroundAnimation)
+        }
+
+
+      })
     }
     
   }
@@ -100,7 +137,7 @@ class Home extends React.Component {
                                  'left-sidar main right-sidebar'
                                  'footer footer footer';
           }
-
+          
           .navBarWrapper{
           overflow: hidden;
           width: 100%;
@@ -303,7 +340,7 @@ class Home extends React.Component {
             border-bottom: 1px solid #f1f1f1;
           }
 
-    
+
         `}</style>
           <style global jsx>{`
             body {

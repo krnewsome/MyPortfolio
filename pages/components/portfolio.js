@@ -100,6 +100,12 @@ class Portfolio extends React.Component{
 
             #portfolioSection{
               padding-top: 60px;
+              transition: all 1s ease;
+
+            }
+
+            .backgroundAnimationPortfolio{
+              background-color: #D4F7FA;
             }
             
             #about{
@@ -121,7 +127,6 @@ class Portfolio extends React.Component{
             .flexBox{
               width: 100%;
               height: 24em;
-              border: solid #FFFFFF  2px;
               margin: 2% 2%;
             }
 

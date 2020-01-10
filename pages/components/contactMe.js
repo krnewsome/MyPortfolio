@@ -22,11 +22,11 @@ const ContactMe = () =>(
           #contactMeSection{
               text-align: center;
               margin: 18em 0;
+              transition: all 1s ease;
             }
       
-            .container{
-              border: solid;
-             
+            .backgroundAnimationAbout{
+             background-color: #FFF;
             }
 
            li {

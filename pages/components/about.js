@@ -58,7 +58,12 @@ const About = () =>(
     
       #aboutSection{
         padding-top: 60px;
+        transition: all .5s ease;
 
+      }
+
+      .backgroundAnimationAbout{
+        background-color: #FFF2D4;
       }
 
       .aboutHeader{
