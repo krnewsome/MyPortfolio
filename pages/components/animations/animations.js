@@ -4,7 +4,7 @@ import Canvas from './canvas.js'
 //FUNCTIONS
 
 
-class Anaimation extends React.Component{
+class Animation extends React.Component{
     constructor(props){
         super(props)
         this.state = { 
@@ -40,4 +40,4 @@ class Anaimation extends React.Component{
 }
 
 
-export default Anaimation
+export default Animation

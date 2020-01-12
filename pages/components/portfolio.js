@@ -16,7 +16,7 @@ const ProjectList =(props)=>{
     /* use a template literal and brackets to dynamically change the count of the class for the background and animations
     of each project while the next buttton is clicked.  */
     <div className={`flexBox pDefault`}>
-        <a href={selectedProject.project_link} ><img src= {selectedProject.project_screen_Shot} style={styles}/></a>
+        <a href={selectedProject.project_link} target="_blank" ><img src= {selectedProject.project_screen_Shot} style={styles}/></a>
         
       <style jsx>{`
             .pDefault{
@@ -64,7 +64,6 @@ class Portfolio extends React.Component{
   cycle back to the first project in the list. Remeber the pCount1 will be passed to the project list array to tell the program which project
   link to use.   */
   nextProject(){
-    console.log(this.state.buttonShape[this.state.pCount])
     this.state.pCount++;
     if(this.state.pCount < projectList.length){
       this.setState({

@@ -4,7 +4,7 @@ import Nav from './components/nav.js'
 import About from './components/about.js'
 import Portfolio from './components/portfolio.js'
 import ContactMe from './components/contactMe.js'
-import Footer from './components/footer.js'
+import Animation from './components/animations/animations.js';
 
 import { Link, animateScroll as scroll } from "react-scroll";
 
@@ -63,10 +63,8 @@ class Home extends React.Component {
         // pageNum is a reference to the previous page about. This is done to remove the animation class when scrolling up
         if(window.pageYOffset >= page.pageBreakPoint ){
           page.pageSection.classList.add(page.pageBackgroundAnimation)
-                    console.log('add')
 
         } else {
-          console.log('remove')
           page.pageSection.classList.remove(page.pageBackgroundAnimation)
         }
 
@@ -124,8 +122,10 @@ class Home extends React.Component {
         <div className="sectionWrapper">
           <Portfolio />
         </div>
+        <div className ="backGroundContainer">
+        <Animation />
+        </div>
         <ContactMe />
-        <Footer />
         <style jsx>{`
 
           .container{

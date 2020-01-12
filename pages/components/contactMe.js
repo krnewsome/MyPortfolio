@@ -1,15 +1,26 @@
 import React from 'react'
-import Animation from './animations/animations.js'
+import { Link, animateScroll as scroll } from "react-scroll";
 
 
 const ContactMe = () =>(
   <section id ="contactMeSection">
     <div className="container">
+      <div className= "homeButtonContactMePage"> 
+        <h1 className='homeButtonText'>  
+          <Link
+                activeClass="active"
+                to="homeSectionWrapper"
+                spy={true}
+                smooth={true}
+                duration= {500}
+                >Back to Top
+          </Link>
+        </h1>
+      </div>
       <h1 className='aboutHeader' id='about'> CONTACT </h1>
       <p>Have questions or want to build something together? Feel free to send an email to XXXXXX@email.com and lets talk.</p>
     
       <h2>Connect with me on Social Media!</h2>
-      <p> Follow and connect with me on Facebook, Twitter, YouTube, and LinkedIn.</p>
       <ul>
         <li tag='social'> <a href="#" className="fa fa-facebook"></a></li>
         <li tag='social'> <a href="#" className="fa fa-twitter"></a></li>
@@ -21,8 +32,42 @@ const ContactMe = () =>(
 
           #contactMeSection{
               text-align: center;
-              margin: 18em 0;
+              position: absolute;
+              margin-top: -34%;
+              margin-left: 30%;
               transition: all 1s ease;
+            }
+
+
+            .homeButtonContactMePage{
+              border: solid .7em black;
+              border-radius: 20%;
+              width: 10em;
+              margin: 0 auto;
+              opacity: .5;
+              transition: all 1s ease;
+            }
+
+            .homeButtonText{
+              font-size: 1.5em;
+              text-shadow: .1em .1em #fff2d4;
+              transition: all 1s ease;
+            }
+
+            .homeButtonContactMePage:hover{
+              cursor:pointer; 
+              opacity: 1;
+            }
+
+
+
+            h1{
+              font-size: 2.5em;
+            }
+
+            p{
+              font-size: 1.2em;
+
             }
       
             .backgroundAnimationAbout{
@@ -36,9 +81,8 @@ const ContactMe = () =>(
             margin: .25em;
           }
 
-       
-        
           .fa {
+          opacity: .5;
           padding: 10px;
           font-size: 40px;
           width: 40px;
@@ -52,6 +96,7 @@ const ContactMe = () =>(
         .fa:hover {
           transform: rotate(360deg);
           text-shadow: 2px 2px 30px #FC8421;
+          opacity: 1;
         
         }
         
