@@ -124,8 +124,9 @@ class Home extends React.Component {
         </div>
         <div className ="backGroundContainer">
         <Animation />
-        </div>
         <ContactMe />
+        </div>
+        
         <style jsx>{`
 
           .container{

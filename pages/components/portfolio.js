@@ -27,7 +27,6 @@ const ProjectList =(props)=>{
               display: inline-block;
              
             } 
-
       `}
       </style>
       </div>

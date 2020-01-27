@@ -32,9 +32,8 @@ const ContactMe = () =>(
 
           #contactMeSection{
               text-align: center;
-              position: absolute;
+              position: relative;
               margin-top: -34%;
-              margin-left: 30%;
               transition: all 1s ease;
             }
 
