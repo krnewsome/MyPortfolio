@@ -4,27 +4,25 @@ import Nav from './components/nav.js'
 import About from './components/about.js'
 import Portfolio from './components/portfolio.js'
 import ContactMe from './components/contactMe.js'
-import Animation from './components/animations/animations.js';
+
 
 import { Link, animateScroll as scroll } from "react-scroll";
 
 
 /* ---------- HTML ------------*/ 
 class Home extends React.Component {
-  constructor(props){
-    super(props)
-    this.state = {
-      test: 0
-    };
-  }
 
   componentDidMount(){
+    //set particles height and width the homepage inneer
+    let w = window.innerWidth;
+    let h = window.innerHeight;
+    console.log(h,w)
+
     window.onscroll = function() {stickyBarScrollandBckGroundColor()};
     // Get the navbar
     let navbar = $('.navBarWrapper')[0];
      // Get the offset position of the navbar
     let sticky = navbar.offsetTop;
-    let scrollStopAbout = aboutSection.offsetTop ;
     let scrollStopPortfolio = portfolioSection.offsetTop - 100 ;
     let scrollStopContactMe = contactMeSection.offsetTop;
     let pages = [
@@ -86,7 +84,7 @@ class Home extends React.Component {
         </Head>
         <section className='homeSectionWrapper'>
           <div className='homeFlex'>
-            <div className='title'>LET'S BUILD SOMETHING GREAT TOGETHER!</div>
+            <div className='title'>LET'S BUILD SOMETHING TOGETHER!</div>
             <div id='circleForEnterBtn'>       
               <Link
                 activeClass="active"
@@ -123,10 +121,8 @@ class Home extends React.Component {
           <Portfolio />
         </div>
         <div className ="backGroundContainer">
-        <Animation />
         <ContactMe />
         </div>
-        
         <style jsx>{`
 
           .container{
@@ -144,8 +140,8 @@ class Home extends React.Component {
           width: 100%;
           background-color: #000D12;
           bottom: 0px;
-          border-bottom: solid #0082B4 2px;
-          border-top: solid #0082B4 2px;
+          border-bottom: solid #A4A71E 2px;
+          border-top: solid #A4A71E 2px;
           max-height: 10%;
         }
           
@@ -178,7 +174,7 @@ class Home extends React.Component {
           .title {
             font-size: 36px;
             color: #ffffff;
-            text-shadow: 3px 3px #0082B4;
+            text-shadow: 2px 2px #D6CE15;
             margin: 2% auto;
           }
     
@@ -264,7 +260,7 @@ class Home extends React.Component {
           }
           
           #circleForEnterBtn:hover .downArrow{
-            border-color: #0082B4;
+            border-color: #A4A71E;
             border-bottom-width: 5px;
             border-right-width: 5px;
             margin-top: 30%;
@@ -331,7 +327,7 @@ class Home extends React.Component {
           #circleForEnterBtn:hover .startBtnContainer{
             opacity: 1;
             border-radius: .5em;
-            color: #0082B4;
+            color: #D6CE15;
             top: 67%;
             text-shadow: 2px 2px 30px #fff
     

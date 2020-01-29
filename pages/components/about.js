@@ -3,58 +3,34 @@ import Icon from '@mdi/react'
 import { mdiConsolidate } from '@mdi/js'
 import { mdiCursorDefaultClick } from '@mdi/js';
 import { mdiIframe } from '@mdi/js';
+import { Link, animateScroll as scroll } from "react-scroll";
 
 const About = () =>(
   <section id ="aboutSection">
-    <h1 className='aboutHeader' id='about'> About </h1>
-    <div className='mainWrapperDiv'>
-      <div className='leftFlexBox'>
-        <div className='profilePhotoDiv'></div>
-        <div className='aboutMeBoxDiv'>
-          <div className='aboutMeBoxContent'>
-            <h2>New Integrated Services</h2>
-            <span className='underlineTitle'></span>
-            <p className='aboutMeDesciption'>
-            I’m a freelance Full Stack JavaScript Developer that has a deep passion for bringing ideas to life, through creative designs, fun interactivity, and new innovate creations. 
-            Have an idea and need some help putting the pieces together? Contact me so we can get started.<br/>
-            Let’s build something great together! 
-            </p>
-          </div>
-        </div>
-      </div>
-      <div className='rightFlexBox'>
-        <div>
-          <Icon path={mdiConsolidate}
-          title="User Profile"
-          size={3}
-          color="#0082B4"
-          />
-          <h3>Integrative Solutions</h3>
-          <p>[description]</p>
-        </div>
-        <div>
-          <Icon path={mdiIframe}
-          title="User Profile"
-          size={3}
-          color="#000D12"
-          />
-          <h3>Website Creation</h3>
-          <p>[description]</p>
-        </div>
-        <div>
-          <Icon path={mdiCursorDefaultClick}
-          title="User Profile"
-          size={3}
-          color="#FC8421"
-          />
-          <h3>Customer Interaction</h3>
-          <p>[description]</p>
-        </div>
-      </div>
+    <div className= "aboutImage"></div>
+    <div className= "aboutContainer">
+      <h2 className= "aboutHeader">Hi, Im Ryan, Nice to Meet You</h2>
+        <p className="aboutDesc">I’m a passionate Web Developer who likes to keep things simple. I 
+          create custom websites and add  functionality to bring ideas to life. </p>
+
+          <Link
+                activeClass="active"
+                to="portfolioSection"
+                spy={true}
+                smooth={true}
+                duration= {500}
+                >
+              <h2 className= "projectHeader"> Check out some of my projects</h2>       
+          </Link>  
     </div>
+    
 
 
     <style jsx>{`
+
+      h2, p, a{
+        font-family: sans-serif;
+      }
     
       #aboutSection{
         padding-top: 60px;
@@ -62,81 +38,48 @@ const About = () =>(
 
       }
 
-      .backgroundAnimationAbout{
-        background-color: #FFF2D4;
-      }
-
       .aboutHeader{
-        font-size: 48px;
-        text-shadow: 2px 2px 30px #0082B4;
-      }
-
-      .mainWrapperDiv{
-        display: flex;
-        flex-direction: row;
-      }
-    
-      .leftFlexBox, .rightFlexBox{
-        width: 100%;
-        height: 100vh;
-        padding: 0 1%;      
-      }
-
-      .profilePhotoDiv{
-        display: block;
-        border: solid #FC8421 2px;
-        border-radius: 50%;
-        height: 300px;
-        width: 300px;
-        background-image: url("images/logo4.jpeg");
-        background-position:50% 50%;
-        background-repeat:no-repeat;  
-        background-color: grey;
-        position: absolute; 
-        margin-left: -.5%;
-      }
-
-      @media only screen and (max-width: 1100px) {
-        .profilePhotoDiv{
-          display: none;
-        }
-      }
-      .aboutMeBoxDiv{
-        max-width: 650px;
-        margin-top: 200px;
-        height: 300px;
-        border: solid #0082B4 2px;
-        background-color: #FC8421;
-      }
-
-      @media only screen and (max-width: 1100px) {
-        .aboutMeBoxDiv{
-          overflow: scroll;
-        }
-      }
-
-      .aboutMeBoxContent{
         margin-top: 10%;
-        color: #fff;
-        padding:1%;
+        font-size: 48px;
+        transform: rotate(-5deg);
+
       }
 
-      .aboutMeBoxContent h2{
+      .aboutDesc{
         font-size: 36px;
+        margin-bottom: -3%;
       }
 
-      .aboutMeBoxContent p{
-        font-size: 18px;
+      .aboutContainer{
+        padding-right: 5%;
+        height: 100vh;
       }
-       
-      .rightFlexBox{
-        display: flex;
-        flex-direction: column;
-        padding: 0% 0%;
+
+      .aboutImage{
+        padding: 1px;
+        float: left;
+        height: 100vh;
+        width: 50%;
+        background-image: url(/images/aboutPhoto.jpeg);
+        background-size: contain;
+        background-repeat: no-repeat;
       }
-      
-      .rightFlexBox div{
-        margin: 2% auto;
+
+      .image{
+        max-width:100%;
+        max-height:100%;
+      }
+
+      .projectHeader{
+        font-size: 32px;
+        transform: rotate(20deg);
+        cursor: pointer;
+        transition: all 500ms ease-in-out;
+      }      
+
+      .projectHeader:hover{
+        color: #D6CE15;
+        font-size: 36px;
       }
 
     `}</style>

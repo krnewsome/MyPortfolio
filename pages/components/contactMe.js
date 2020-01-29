@@ -8,12 +8,12 @@ const ContactMe = () =>(
       <div className= "homeButtonContactMePage"> 
         <h1 className='homeButtonText'>  
           <Link
-                activeClass="active"
-                to="homeSectionWrapper"
-                spy={true}
-                smooth={true}
-                duration= {500}
-                >Back to Top
+              activeClass="active"
+              to="homeSectionWrapper"
+              spy={true}
+              smooth={true}
+              duration= {500}
+              >Back to Top
           </Link>
         </h1>
       </div>

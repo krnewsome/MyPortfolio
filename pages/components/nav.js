@@ -100,7 +100,7 @@ const Nav = () => (
         
 
         li[navtype="mainNav"]:hover{
-          color: #0082B4;
+          color: #D6CE15;
           font-size: 36px;
         }        
 
