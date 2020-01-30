@@ -65,12 +65,14 @@ class Home extends React.Component {
         } else {
           page.pageSection.classList.remove(page.pageBackgroundAnimation)
         }
-
-
       })
-    }
+    }// end of stickyBarScrollandBckGroundColor
+
+  
     
-  }
+  }// end of componet did mount 
+
+
 
 
   render (){
@@ -177,95 +179,97 @@ class Home extends React.Component {
             text-shadow: 2px 2px #D6CE15;
             margin: 2% auto;
           }
-    
-          #circleForEnterBtn{
-            cursor: pointer;
-            margin-top: 5%;
-            text-align: center;
-            padding:0;
-            height: 100px;
-            width: 100px;
-            border: solid #ffffff 2px;
-            border-radius: 50%;
-            transition: all 200ms ease-in-out;
-            display: block;
-          }
-        
-          #circleForEnterBtn:hover{
-            border-radius: .5em;  
-          }
-    
-          .tSpan, .rSpan, .bSpan, .lSpan{
-            opacity: 0;
-            position: absolute;
-            display: inline-block;
-            height: 30px;
-            width: 30px;
-            border: solid #ffffff 2px;
-            border-bottom-color: #000D12;
-            border-radius: 50%;
-            margin-top: -1.8em;
-            margin-left: .2em;
-            background-color: #000D12;
-            transition: all 1000ms ease-in-out;
-          }
+
+          @media only screen and (min-height:585px ){
+            #circleForEnterBtn{
+              cursor: pointer;
+              margin-top: 5%;
+              text-align: center;
+              padding:0;
+              height: 100px;
+              width: 100px;
+              border: solid #ffffff 2px;
+              border-radius: 50%;
+              transition: all 200ms ease-in-out;
+              display: block;
+            }
           
-          .bSpan{
-            margin-top: -3.2em;
-            background-color: #000D12;
-            transform: rotate(180deg);
-            transform-origin: 50% 232%; 
-            border-top-color: #000D12;
-            border-bottom-color: #000D12;
-            transition: all 4000ms ease-in-out;
-    
-          }
-    
-          .rSpan{
-            background-color: #000D12;
-            transform: rotate(90deg);
-            transform-origin: 50% 232%; 
-            border-bottom-color: #000D12;
-            transition: all 2000ms ease-in-out;
-    
-          }
-    
-          .lSpan{
-            background-color: #000D12;
-            transform: rotate(270deg);
-            transform-origin: 50% 232%; 
-            border-bottom-color: #000D12;
-            transition: all 3000ms ease-in-out;
-    
-          }
-          
-          #circleForEnterBtn:hover .tSpan,
-          #circleForEnterBtn:hover .rSpan,
-          #circleForEnterBtn:hover .lSpan, 
-          #circleForEnterBtn:hover .bSpan {
-            opacity: 1;
-          }
-        
-          .downArrow{
-            display: inline-block;
-            vertical-align: middle;
-            box-sizing: border-box;
-            height: 40px;
-            width: 40px;
-            border: solid #ffffff;
-            border-width: 0px 1px 1px 0px;
-            transform: rotate(45deg);
-            transition: border-width 150ms ease-in-out;
-            transition: margin-top 200ms ease-in-out;
-          }
-          
-          #circleForEnterBtn:hover .downArrow{
-            border-color: #A4A71E;
-            border-bottom-width: 5px;
-            border-right-width: 5px;
-            margin-top: 30%;
-          }
+            #circleForEnterBtn:hover{
+              border-radius: .5em;  
+            }
       
+            .tSpan, .rSpan, .bSpan, .lSpan{
+              opacity: 0;
+              position: absolute;
+              display: inline-block;
+              height: 30px;
+              width: 30px;
+              border: solid #ffffff 2px;
+              border-bottom-color: #000D12;
+              border-radius: 50%;
+              margin-top: -1.8em;
+              margin-left: .2em;
+              background-color: #000D12;
+              transition: all 1000ms ease-in-out;
+            }
+            
+            .bSpan{
+              margin-top: -3.2em;
+              background-color: #000D12;
+              transform: rotate(180deg);
+              transform-origin: 50% 232%; 
+              border-top-color: #000D12;
+              border-bottom-color: #000D12;
+              transition: all 4000ms ease-in-out;
+      
+            }
+      
+            .rSpan{
+              background-color: #000D12;
+              transform: rotate(90deg);
+              transform-origin: 50% 232%; 
+              border-bottom-color: #000D12;
+              transition: all 2000ms ease-in-out;
+      
+            }
+      
+            .lSpan{
+              background-color: #000D12;
+              transform: rotate(270deg);
+              transform-origin: 50% 232%; 
+              border-bottom-color: #000D12;
+              transition: all 3000ms ease-in-out;
+      
+            }
+
+            #circleForEnterBtn:hover .tSpan,
+            #circleForEnterBtn:hover .rSpan,
+            #circleForEnterBtn:hover .lSpan, 
+            #circleForEnterBtn:hover .bSpan {
+              opacity: 1;
+            }
+          
+            .downArrow{
+              display: inline-block;
+              vertical-align: middle;
+              box-sizing: border-box;
+              height: 40px;
+              width: 40px;
+              border: solid #ffffff;
+              border-width: 0px 1px 1px 0px;
+              transform: rotate(45deg);
+              transition: border-width 150ms ease-in-out;
+              transition: margin-top 200ms ease-in-out;
+            }
+            
+            #circleForEnterBtn:hover .downArrow{
+              border-color: #A4A71E;
+              border-bottom-width: 5px;
+              border-right-width: 5px;
+              margin-top: 30%;
+            }  
+          }
+          
           .startBtn{
             cursor: pointer;
             font-size: 24px;

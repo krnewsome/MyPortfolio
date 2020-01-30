@@ -47,7 +47,7 @@ const About = () =>(
 
       .aboutDesc{
         font-size: 36px;
-        margin-bottom: -3%;
+        margin-bottom: 6%;
       }
 
       .aboutContainer{
