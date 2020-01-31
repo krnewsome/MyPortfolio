@@ -5,22 +5,26 @@ import { Link, animateScroll as scroll } from "react-scroll";
 const ContactMe = () =>(
   <section id ="contactMeSection">
     <div className="container">
-      <div className= "homeButtonContactMePage"> 
-        <h1 className='homeButtonText'>  
-          <Link
-              activeClass="active"
-              to="homeSectionWrapper"
-              spy={true}
-              smooth={true}
-              duration= {500}
-              >Back to Top
-          </Link>
-        </h1>
-      </div>
+       <Link
+          activeClass="active"
+          to="homeSectionWrapper"
+          spy={true}
+          smooth={true}
+          duration= {500}
+
+          >
+          <div className="homeBtncontainer">
+            <div className= "arrowBtn btn1"></div>   
+            <div className= "arrowBtn btn2"></div>  
+            <div className= "arrowBtn btn3"></div>   
+            <h2 className= "checkoutProjectHeader"> Back To Top</h2>
+
+         </div>   
+        </Link>  
       <h1 className='aboutHeader' id='about'> CONTACT </h1>
-      <p>Have questions or want to build something together? Feel free to send an email to XXXXXX@email.com and lets talk.</p>
+      <p className="contactDesc">Have questions or want to build something together? <br/>Feel free to send an email to XXXXXX@email.com and lets talk.</p>
     
-      <h2>Connect with me on Social Media!</h2>
+      <p>Connect with me on Social Media!</p>
       <ul>
         <li tag='social'> <a href="#" className="fa fa-facebook"></a></li>
         <li tag='social'> <a href="#" className="fa fa-twitter"></a></li>
@@ -31,47 +35,85 @@ const ContactMe = () =>(
     <style jsx>{`
 
           #contactMeSection{
-              text-align: center;
+              text-align: inline-block;
               position: relative;
-              margin-top: -34%;
               transition: all 1s ease;
+              height: 100vh;
+              padding-top: 5%;
             }
 
-
-            .homeButtonContactMePage{
-              border: solid .7em black;
-              border-radius: 20%;
-              width: 10em;
-              margin: 0 auto;
-              opacity: .5;
-              transition: all 1s ease;
+            .checkoutProjectHeader{
+              margin: 4% 0;
+              font-size: 32px;
+              cursor: pointer;
+              color: #1F6521;
+              transition: all 500ms ease-in-out;
+            }    
+         
+      
+            .homeBtncontainer:hover .checkoutProjectHeader{
+              font-size: 36px;
+              background: linear-gradient(to right, #1F6521, #53900F, #A4A71E, #D6CE15);
+              -webkit-background-clip: text; 
+              color: transparent;
             }
-
-            .homeButtonText{
-              font-size: 1.5em;
-              text-shadow: .1em .1em #fff2d4;
-              transition: all 1s ease;
+          
+            .arrowBtn{
+              width: 100px;
+              height: 100px;
+              text-align: center;
+              margin: -4% auto;
+              transform: rotate(313deg);
+              border-radius: 25%;
+              cursor: pointer;
+      
             }
-
-            .homeButtonContactMePage:hover{
-              cursor:pointer; 
+      
+            .btn1{
+              border-top: 20px solid #53900F;
+              border-right: 20px solid #53900F;
+              opacity: 0;
+              transition: all 1000ms ease-in-out; 
+            }
+      
+            .btn2{
+              border-top: 20px solid #A4A71E;
+              border-right: 20px solid #A4A71E;
+              opacity: 0;
+              transition: all 2000ms ease-in-out;
+            }
+            
+            .btn3{
+              border-top: 20px solid #D6CE15;
+              border-right: 20px solid #D6CE15;
+              opacity: 0;
+              transition: all 3000ms ease-in-out;
+            }
+      
+            .homeBtncontainer:hover .btn1,
+            .homeBtncontainer:hover .btn2,
+            .homeBtncontainer:hover .btn3{
               opacity: 1;
             }
 
+        
 
-
+           
             h1{
-              font-size: 2.5em;
+              margin: 0;
+              font-size: 48px;
+              transform: rotate( 6deg);
+              color: #1F6521;
             }
 
             p{
-              font-size: 1.2em;
-
+              font-size: 36px;
+              margin: 3%;
+              background: linear-gradient(to right, #1F6521, #53900F, #A4A71E, #D6CE15);
+              -webkit-background-clip: text; 
+              color: transparent;
             }
       
-            .backgroundAnimationAbout{
-             background-color: #FFF;
-            }
 
            li {
             cursor: pointer;
@@ -81,15 +123,15 @@ const ContactMe = () =>(
           }
 
           .fa {
-          opacity: .5;
-          padding: 10px;
-          font-size: 40px;
-          width: 40px;
-          text-align: center;
-          text-decoration: none;
-          border-radius: 50%;
-          align-self: flex-end;
-          transition: all 3000ms ease-in-out;
+            opacity: .5;
+            padding: 10px;
+            font-size: 40px;
+            width: 40px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 50%;
+            align-self: flex-end;
+            transition: all 3000ms ease-in-out;
         }
 
         .fa:hover {
@@ -118,6 +160,8 @@ const ContactMe = () =>(
           background: #bb0000;
           color: white;
         }
+
+
       
     `}</style>
   </section>

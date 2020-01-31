@@ -23,29 +23,8 @@ class Home extends React.Component {
     let navbar = $('.navBarWrapper')[0];
      // Get the offset position of the navbar
     let sticky = navbar.offsetTop;
-    let scrollStopPortfolio = portfolioSection.offsetTop - 100 ;
-    let scrollStopContactMe = contactMeSection.offsetTop;
-    let pages = [
-                          {
-                            pageSection: aboutSection,
-                            pageReferenceNum: 1,
-                            pageBreakPoint: navbar.offsetTop,
-                            pageBackgroundAnimation: "backgroundAnimationAbout"
-                          }, 
-                          {
-                            pageSection: portfolioSection, 
-                            pageReferenceNum: 2,
-                            pageBreakPoint: scrollStopPortfolio,
-                            pageBackgroundAnimation: "backgroundAnimationPortfolio"
-                          }, 
-                          {
-                            pageSection: contactMeSection,
-                            pageReferenceNum: 1,
-                            pageBreakPoint: scrollStopContactMe,
-                            pageBackgroundAnimation: "backgroundAnimationContactMe"
-                          }  
-                        ];
-
+  
+    
 
     // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
     function stickyBarScrollandBckGroundColor() {
@@ -55,24 +34,8 @@ class Home extends React.Component {
       } else {
         navbar.classList.remove("sticky");    
       }
-
-      pages.forEach((page) =>{
-
-        // pageNum is a reference to the previous page about. This is done to remove the animation class when scrolling up
-        if(window.pageYOffset >= page.pageBreakPoint ){
-          page.pageSection.classList.add(page.pageBackgroundAnimation)
-
-        } else {
-          page.pageSection.classList.remove(page.pageBackgroundAnimation)
-        }
-      })
-    }// end of stickyBarScrollandBckGroundColor
-
-  
-    
+    }
   }// end of componet did mount 
-
-
 
 
   render (){
@@ -94,6 +57,7 @@ class Home extends React.Component {
                 spy={true}
                 smooth={true}
                 duration= {500}
+                offset= {-30}
                 >
                   <span className="tSpan"></span>
                   <span className="bSpan"></span>

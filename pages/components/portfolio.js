@@ -1,162 +1,121 @@
 import React from 'react';
 import projectList  from  './projects/projectList.json';
+import Icon from '@mdi/react'
+import { mdiLanguageJavascript } from '@mdi/js';
+import { mdiLanguageHtml5 } from '@mdi/js';
+import { mdiLanguageCss3 } from '@mdi/js';
+import { mdiNodejs } from '@mdi/js';
 
-const ProjectList =(props)=>{
-  let count = props.pCount;
-  let selectedProject = props.pList[count];
-  let styles = {
-    backgroundRepeat: "no-repeat",
-    display: "block",
-    height: "25em",
-    margin: "auto",
-
-  }
-
-  return(
-    /* use a template literal and brackets to dynamically change the count of the class for the background and animations
-    of each project while the next buttton is clicked.  */
-    <div className={`flexBox pDefault`}>
-        <a href={selectedProject.project_link} target="_blank" ><img src= {selectedProject.project_screen_Shot} style={styles}/></a>
-        
-      <style jsx>{`
-            .pDefault{
-              max-width: 50%;
-              min-height: 100%;
-              opacity: .8;
-              position: relative;
-              display: inline-block;
-             
-            } 
-      `}
-      </style>
-      </div>
-    )
-}
 
 class Portfolio extends React.Component{
-  constructor(props){
-    super(props)
-    this.state = {
-      pCount: 0,
-      buttonShape: [
-        {
-          borderRadius:'50%'
-        },
-        {
-        borderRadius:'0%'
-      },
-      {
-        borderTop: "none",
-        borderTopColor: "#FC8421",
-        borderLeft: "50px solid transparent",
-        borderRight: "50px solid transparent",
-        borderWidth: "50px", 
-        borderStyle: "solid" 
-      }
-    ]
-
-    }
-  }
-  
-  /* Function used to cycle through each project. Once the function is executed add 1 to the project count (pCount1). Before setting the state 
-  of the projectlist, check to see is the count is over the length of the projectlist. If it is not change the state by increasing 1. If it is 
-  cycle back to the first project in the list. Remeber the pCount1 will be passed to the project list array to tell the program which project
-  link to use.   */
-  nextProject(){
-    this.state.pCount++;
-    if(this.state.pCount < projectList.length){
-      this.setState({
-        pCount: this.state.pCount,
-
-      })
-    } else {
-      this.setState({
-        pCount: 0
-      })
-    }
-  }
-
-  boundNextProject = this.nextProject.bind(this)
-
   render(){
-    let buttonShape= this.state.buttonShape
-    
-    return(
-      <section id ="portfolioSection">
-          <h1 className='portfolioHeader' id='about'> My Projects </h1>
-          <div className='mainWrapperDiv'>
-            <div className='flexBox'>
-              <ProjectList pList= {projectList} pCount = {this.state.pCount}/>
-              <div style={buttonShape[this.state.pCount]} className= "portfolioButton" onClick={this.boundNextProject}> 
-                <h1 className='nextProjectText'> NEXT </h1>
-              </div>
-            </div>
-          </div>
-
+    let key = 1
+    const projects = projectList.map(project =>
+        <a href= {project.project_link} target="_blank"  className="flexBox">
 
           <style jsx>{`
+            .flexBox{
+              height: 90%;
+              margin: 3%;
+              -webkit-flex: 1;
+              -ms-flex: 1;
+              flex: 1 25%;
+              justify-content: space-evenly;
+              background-image: url(${project.project_screen_Shot});
+              background-size: contain;
+              background-repeat: no-repeat;
+            }
+          `}
+          </style>
+        </a>
+    )// end of map
+
+
+    return(
+      <section id ="portfolioSection">
+           
+              <p className="jsElement icon1"> 
+                <Icon path={mdiLanguageJavascript}
+                  title="JS"
+                  size={4}
+                  horizontal
+                  vertical
+                  rotate={200}
+                  color="#D6CE15"
+                /> 
+              </p>
+              <p className="htmlElement icon2"> 
+                <Icon path={mdiLanguageHtml5}
+                    title="HTML"
+                    size={4}
+                    horizontal
+                    vertical
+                    rotate={180}
+                    color="#53900F"
+                    /> 
+              </p>
+              <p className="cssElement icon3">  
+                <Icon path={mdiLanguageCss3}
+                  title="CSS3"
+                  size={4}
+                  horizontal
+                  vertical
+                  rotate={170}
+                  color="#A4A71E"
+                  /> 
+                </p>
+              <p className="nodejsElement icon4"> 
+                <Icon path={mdiNodejs}
+                    title="Nodejs"
+                    size={4}
+                    horizontal
+                    vertical
+                    rotate={180}
+                    color="#1F6521"
+                /> 
+              </p>
+              <div className='flexBoxContainer'>
+              {projects}
+            </div>
+          <style jsx>{`
+
+            .icon1, .icon2, .icon3, .icon4{
+              position: absolute;
+
+            }
+
+            .icon1{
+              margin-top: 0%;
+              left: 64.5%;
+            }
+ 
+            .icon2{
+              margin-top: 22.5%;
+              left: 90%;
+            }
+
+            .icon3{
+              margin-top: 40%;
+              left: 31%;
+            }
+
+            .icon4{
+              margin-top: 22.5%;
+              left: 6%;
+            }
 
             #portfolioSection{
               padding-top: 60px;
-              transition: all 1s ease;
-
-            }
-
-            .backgroundAnimationPortfolio{
-              background-color: #D4F7FA;
-            }
-            
-            #about{
-              margin-bottom: 0;
-            }
-
-            .portfolioHeader{
-              font-size: 48px;
-              text-shadow: 2px 2px 30px #FC8421;
-            }
-
-            .mainWrapperDiv{
-              display: flex;
-              flex-direction: collumn;
               height: 100vh;
-
-            }
-          
-            .flexBox{
-              width: 100%;
-              height: 24em;
-              margin: 2% 2%;
             }
 
-            .portfolioButton{
-              cursor: pointer;
-              border: dashed #29abe0 .5em ;
-              position: relative;
-              margin: auto;
-              margin-top: 2em;
-              height: 6.5em;
-              width: 6.5em;
-              transition: all 1s ease;
+            .flexBoxContainer{ 
+              display: -webkit-flex;
+              display: flex;
+              flex-direction: row;
+              flex-wrap: wrap;
+              height: 40vh;
             }
-
-            .portfolioButton:hover {
-              border: dotted;
-              border-color: #FC8421;
-            }
-
-            .portfolioButton:hover .nextProjectText{
-              text-shadow: 2px 2px 30px #29abe0;
-            }
-
-            .nextProjectText{
-              cursor: pointer;
-              font-size: 24px;
-              margin-top: 34%;
-              text-shadow: 2px 2px 30px #FC8421;
-              transition: all 1s ease;
-            }
-
-          
 
           `}</style>
         </section>

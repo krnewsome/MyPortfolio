@@ -31,7 +31,7 @@ const Nav = () => (
       />
     </Head>
 
-    <nav>
+    <nav id="navBar">
       <ul className='mainMenu'>
         <li className='menuDropDown'> 
           <p onClick={dropDownFunc} className="border-menu">
@@ -56,6 +56,7 @@ const Nav = () => (
                 spy={true}
                 smooth={true}
                 duration= {500}
+                offset= {-30}
                 >{label}
           </Link>
           </li>
