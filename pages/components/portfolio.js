@@ -205,11 +205,12 @@ class Portfolio extends React.Component{
                 overflow: scroll;
               }
             }
-            
+
             @media only screen and (max-height:850px){
               .btn1,
               .btn2,
-              .btn3{
+              .btn3,
+              .contactButtonHeader{
                 display: none;
             }
 
