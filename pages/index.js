@@ -144,7 +144,7 @@ class Home extends React.Component {
             margin: 2% auto;
           }
 
-          @media only screen and (min-height:585px ){
+       
             #circleForEnterBtn{
               cursor: pointer;
               margin-top: 5%;
@@ -232,7 +232,7 @@ class Home extends React.Component {
               border-right-width: 5px;
               margin-top: 30%;
             }  
-          }
+          
           
           .startBtn{
             cursor: pointer;
@@ -283,7 +283,7 @@ class Home extends React.Component {
             border-bottom-color: #000D12;
             transition: all 4000ms ease-in-out;
           }
-    
+   
           .startBtnContainer .lSpan{
             margin-top: -6.7em;
             margin-left: -1em;
@@ -301,6 +301,11 @@ class Home extends React.Component {
     
           }
     
+          @media only screen and (max-height:620px) and (max-width:600px){
+            #circleForEnterBtn{
+              display: none;
+            }
+          }
           .sectionWrapper{
             border-bottom: 1px solid #f1f1f1;
           }

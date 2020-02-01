@@ -5,6 +5,8 @@ import { mdiLanguageJavascript } from '@mdi/js';
 import { mdiLanguageHtml5 } from '@mdi/js';
 import { mdiLanguageCss3 } from '@mdi/js';
 import { mdiNodejs } from '@mdi/js';
+import { Link, animateScroll as scroll } from "react-scroll";
+
 
 
 class Portfolio extends React.Component{
@@ -23,8 +25,17 @@ class Portfolio extends React.Component{
               justify-content: space-evenly;
               background-image: url(${project.project_screen_Shot});
               background-size: contain;
+              background-position: center;
+
               background-repeat: no-repeat;
             }
+
+            @media only screen and (max-width:1024px){
+              .flexBox{
+                flex: 1 45%;
+              }
+            }
+
           `}
           </style>
         </a>
@@ -33,80 +44,89 @@ class Portfolio extends React.Component{
 
     return(
       <section id ="portfolioSection">
-           
-              <p className="jsElement icon1"> 
+           <div >
+             <ul className="iconWrapper">
+              <li className="jsElement icon1"> 
                 <Icon path={mdiLanguageJavascript}
                   title="JS"
-                  size={4}
+                  size={5}
                   horizontal
                   vertical
                   rotate={200}
                   color="#D6CE15"
                 /> 
-              </p>
-              <p className="htmlElement icon2"> 
+              </li>
+              <li className="htmlElement icon2"> 
                 <Icon path={mdiLanguageHtml5}
                     title="HTML"
-                    size={4}
+                    size={5}
                     horizontal
                     vertical
                     rotate={180}
                     color="#53900F"
                     /> 
-              </p>
-              <p className="cssElement icon3">  
+              </li>
+              <li className="cssElement icon3">  
                 <Icon path={mdiLanguageCss3}
                   title="CSS3"
-                  size={4}
+                  size={5}
                   horizontal
                   vertical
                   rotate={170}
                   color="#A4A71E"
                   /> 
-                </p>
-              <p className="nodejsElement icon4"> 
+                </li>
+              <li className="nodejsElement icon4"> 
                 <Icon path={mdiNodejs}
                     title="Nodejs"
-                    size={4}
+                    size={5}
                     horizontal
                     vertical
                     rotate={180}
                     color="#1F6521"
                 /> 
-              </p>
+              </li>
+              </ul>
+              </div>
               <div className='flexBoxContainer'>
               {projects}
             </div>
+
+
+            <Link
+                activeClass="active"
+                to="contactMeSection"
+                spy={true}
+                smooth={true}
+                duration= {500}
+                offset= {-30}
+                >
+              <div className="container">
+                <h2 className= "contactButtonHeader"> Let's Work Together</h2>
+                <div className= "arrowBtn btn1"></div>   
+                <div className= "arrowBtn btn2"></div>  
+                <div className= "arrowBtn btn3"></div>   
+              </div>   
+          </Link>  
+
+
           <style jsx>{`
-
-            .icon1, .icon2, .icon3, .icon4{
-              position: absolute;
-
-            }
-
-            .icon1{
-              margin-top: 0%;
-              left: 64.5%;
-            }
- 
-            .icon2{
-              margin-top: 22.5%;
-              left: 90%;
-            }
-
-            .icon3{
-              margin-top: 40%;
-              left: 31%;
-            }
-
-            .icon4{
-              margin-top: 22.5%;
-              left: 6%;
-            }
 
             #portfolioSection{
               padding-top: 60px;
               height: 100vh;
+            }
+            
+            .iconWrapper{
+              padding: 0;
+              display: inline-flex;
+              list-style-type: none;
+              justify-content: space-between;
+              margin-bottom: 5%;
+
+            }
+            .iconWrapper li{
+              margin: auto; 
             }
 
             .flexBoxContainer{ 
@@ -115,6 +135,82 @@ class Portfolio extends React.Component{
               flex-direction: row;
               flex-wrap: wrap;
               height: 40vh;
+            }
+
+            .contactButtonHeader{
+              margin: 4% 0;
+              font-size: 32px;
+              cursor: pointer;
+              color: #1F6521;
+              transition: all 500ms ease-in-out;
+            }    
+         
+      
+            .container:hover .contactButtonHeader{
+              font-size: 36px;
+              background: linear-gradient(to right, #1F6521, #53900F, #A4A71E, #D6CE15);
+              -webkit-background-clip: text; 
+              color: transparent;
+            }
+
+            .arrowBtn{
+              width: 100px;
+              height: 100px;
+              text-align: center;
+              margin: -4% auto;
+              transform: rotate(135deg);
+              border-radius: 25%;
+              cursor: pointer;
+      
+            }
+      
+            .btn1{
+              border-top: 20px solid #53900F;
+              border-right: 20px solid #53900F;
+              opacity: 0;
+              transition: all 1000ms ease-in-out; 
+            }
+      
+            .btn2{
+              border-top: 20px solid #A4A71E;
+              border-right: 20px solid #A4A71E;
+              opacity: 0;
+              transition: all 2000ms ease-in-out;
+            }
+            
+            .btn3{
+              border-top: 20px solid #D6CE15;
+              border-right: 20px solid #D6CE15;
+              opacity: 0;
+              transition: all 3000ms ease-in-out;
+            }
+      
+            .container{
+              height: 50%;
+            }
+      
+            .container:hover .btn1,
+            .container:hover .btn2,
+            .container:hover .btn3{
+              opacity: 1;
+            }
+
+            //iphone
+            @media only screen and (max-width:1240px){
+              .icon1, .icon2, .icon3, .icon4, .contactButtonHeader, .btn1, .btn2, .btn3{
+                display: none;
+              }
+             
+              #portfolioSection{
+                overflow: scroll;
+              }
+            }
+            
+            @media only screen and (max-height:850px){
+              .btn1,
+              .btn2,
+              .btn3{
+                display: none;
             }
 
           `}</style>

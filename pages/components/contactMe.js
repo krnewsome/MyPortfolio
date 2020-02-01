@@ -161,7 +161,12 @@ const ContactMe = () =>(
           color: white;
         }
 
-
+        @media only screen and (max-height:850px){
+          .btn1,
+          .btn2,
+          .btn3{
+            display: none;
+        }
       
     `}</style>
   </section>

@@ -38,6 +38,7 @@ const About = () =>(
       }
     
       #aboutSection{
+        overflow: hidden;
         display: -webkit-flex;
         display: flex;
         padding-top: 60px;
@@ -50,7 +51,6 @@ const About = () =>(
         -webkit-flex: 1;
         -ms-flex: 1;
         flex: 1;
-        height: 100vh;
         background-image: url(/images/aboutPhoto.jpeg);
         background-size: contain;
         background-repeat: no-repeat;
@@ -130,10 +130,39 @@ const About = () =>(
         transition: all 3000ms ease-in-out;
       }
 
+      .container{
+        height: 50%;
+      }
+
       .container:hover .btn1,
       .container:hover .btn2,
       .container:hover .btn3{
         opacity: 1;
+      }
+
+      //iphone
+      @media only screen and (max-width:1240px){
+       #aboutSection{
+        flex-direction: column;
+       }
+
+       .aboutImage{
+         padding: 20%;
+         margin: auto;
+       }  
+      }
+
+      @media only screen and (max-height:850px){
+        .btn1,
+        .btn2,
+        .btn3{
+          display: none;
+        }
+
+        .container{
+          height: 30%;
+          margin: 10%;
+        }
       }
 
     `}</style>
