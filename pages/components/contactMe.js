@@ -26,10 +26,8 @@ const ContactMe = () =>(
     
       <p>Connect with me on Social Media!</p>
       <ul>
-        <li tag='social'> <a href="#" className="fa fa-facebook"></a></li>
-        <li tag='social'> <a href="#" className="fa fa-twitter"></a></li>
-        <li tag='social'> <a href="#" className="fa fa-linkedin"></a></li>
-        <li tag='social'> <a href="#" className="fa fa-youtube"></a></li>
+        <li tag='social'> <a href="https://twitter.com/Ry_Dev21" className="fa fa-twitter"></a></li>
+        <li tag='social'> <a href="https://www.linkedin.com/in/keith-newsome-mph-0983b874/" className="fa fa-linkedin"></a></li>
       </ul>
       </div>
     <style jsx>{`
@@ -96,8 +94,6 @@ const ContactMe = () =>(
               opacity: 1;
             }
 
-        
-
            
             h1{
               margin: 0;
@@ -141,11 +137,6 @@ const ContactMe = () =>(
         
         }
         
-        .fa-facebook {
-          background: #3B5998;
-          color: white;
-        }
-        
         .fa-twitter {
           background: #55ACEE;
           color: white;
@@ -153,11 +144,6 @@ const ContactMe = () =>(
 
         .fa-linkedin {
           background: #007bb5;
-          color: white;
-        }
-        
-        .fa-youtube {
-          background: #bb0000;
           color: white;
         }
 

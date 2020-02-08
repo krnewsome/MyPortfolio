@@ -91,8 +91,6 @@ class Portfolio extends React.Component{
               <div className='flexBoxContainer'>
               {projects}
             </div>
-
-
             <Link
                 activeClass="active"
                 to="contactMeSection"
@@ -108,8 +106,6 @@ class Portfolio extends React.Component{
                 <div className= "arrowBtn btn3"></div>   
               </div>   
           </Link>  
-
-
           <style jsx>{`
 
             #portfolioSection{
@@ -196,8 +192,8 @@ class Portfolio extends React.Component{
             }
 
             //iphone
-            @media only screen and (max-width:1240px){
-              .icon1, .icon2, .icon3, .icon4, .contactButtonHeader, .btn1, .btn2, .btn3{
+            @media only screen and (max-width:1024px){
+              .icon1, .icon2, .icon3, .icon4, .arrowBtn{
                 display: none;
               }
              
@@ -206,13 +202,7 @@ class Portfolio extends React.Component{
               }
             }
 
-            @media only screen and (max-height:850px){
-              .btn1,
-              .btn2,
-              .btn3,
-              .contactButtonHeader{
-                display: none;
-            }
+            
 
           `}</style>
         </section>

@@ -1,7 +1,4 @@
 import React from 'react'
-import Icon from '@mdi/react'
-import { mdiConsolidate } from '@mdi/js'
-import { mdiCursorDefaultClick } from '@mdi/js';
 import { Link, animateScroll as scroll } from "react-scroll";
 
 const About = () =>(

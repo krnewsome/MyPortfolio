@@ -16,7 +16,6 @@ class Home extends React.Component {
     //set particles height and width the homepage inneer
     let w = window.innerWidth;
     let h = window.innerHeight;
-    console.log(h,w)
 
     window.onscroll = function() {stickyBarScrollandBckGroundColor()};
     // Get the navbar
